@@ -17,3 +17,6 @@ jobs:
     - name: Build
       run: msbuild.exe MathLib.sln /t:Restore;Build /p:Configuration=Release
       shell: cmd
+    - name: Tests
+      run: msbuild.exe MathLib.sln /t:Test /p:Configuration=Release
+      shell: cmd

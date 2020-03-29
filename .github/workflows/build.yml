@@ -14,8 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: microsoft/setup-msbuild@v1
+    - name: Restore
+      run: nuget.exe restore MathLib.sln
+      shell: cmd
     - name: Build
-      run: msbuild.exe MathLib.sln /t:Restore;Build /p:Configuration=Release
+      run: msbuild.exe MathLib.sln /t:Build /p:Configuration=Release
       shell: cmd
     - name: Tests
       run: msbuild.exe MathLib.sln /t:Test /p:Configuration=Release
